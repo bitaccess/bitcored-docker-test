@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y -q --no-install-recommends \
         python \
         rsync \
         software-properties-common \
+        git-core \
         wget \
     && rm -rf /var/lib/apt/lists/*
 
