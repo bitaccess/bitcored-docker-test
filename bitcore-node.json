@@ -1,7 +1,7 @@
 {
   "datadir": "/bitcoin",
-  "network": "livenet",
-  "port": 3000,
+  "network": "testnet",
+  "port": 3001,
   "services": [
     "bitcoind",
     "db",
