@@ -1,5 +1,5 @@
-# Warning: node:argon is based off of an odd base image.
-FROM node:argon
+
+FROM ubuntu:16.04
 MAINTAINER Moe Adham <moe@bitaccess.co>
 
 # Install base dependencies
@@ -15,12 +15,16 @@ RUN apt-get update && apt-get install -y -q --no-install-recommends \
         software-properties-common \
         git-core \
         wget \
+        libzmq3-dev \
     && rm -rf /var/lib/apt/lists/*
 
+# Install node.js
+RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
+RUN apt-get install -yqq nodejs
+RUN npm i -g npm@5
+
 # Install Bitcore
-RUN npm install -g bitcore
+RUN npm install --unsafe-perm -g satoshilabs/bitcore#426eb972131fb50a1205780387e82e0a30172b22
 ADD bitcore-node.json /root/.bitcore/
-RUN git clone https://github.com/bitaccess/insight-api.git && cd insight-api && git checkout 294500f49315ee968fb0dfd0d79bce170ee902ee
-RUN cp -rf insight-api/lib/* /usr/local/lib/node_modules/bitcore/node_modules/insight-api/lib/
 EXPOSE 3000 18333
 ENTRYPOINT "bitcored"
