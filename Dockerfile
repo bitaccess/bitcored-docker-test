@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y -q --no-install-recommends \
         git-core \
         wget \
         libzmq3-dev \
+        vim \
     && rm -rf /var/lib/apt/lists/*
 
 # Install node.js
@@ -23,8 +24,9 @@ RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
 RUN apt-get install -yqq nodejs
 RUN npm i -g npm@5
 
+
 # Install Bitcore
-RUN npm install --unsafe-perm -g satoshilabs/bitcore#426eb972131fb50a1205780387e82e0a30172b22
+RUN npm install --unsafe-perm -g satoshilabs/bitcore#43b2aaa39b96b2254261da4b4467c869505cc416
 ADD bitcore-node.json /root/.bitcore/
 EXPOSE 3000 18333
 ENTRYPOINT "bitcored"

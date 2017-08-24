@@ -4,15 +4,14 @@
   "services": [
     "bitcoind",
     "web",
-    "insight-api",
-    "insight-ui"
+    "insight-api"
   ],
   "servicesConfig": {
   "bitcoind": {
     "spawn": {
       "datadir": "/bitcoin",
       "network": "testnet",
-      "exec": "/usr/local/lib/node_modules/bitcore/node_modules/bitcore-node/bin/bitcoind"
+      "exec": "/usr/lib/node_modules/bitcore/node_modules/bitcore-node/bin/bitcoind"
     }
   }
  }
