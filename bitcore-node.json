@@ -1,12 +1,21 @@
 {
-  "datadir": "/bitcoin",
   "network": "testnet",
   "port": 3000,
   "services": [
     "bitcoind",
-    "db",
-    "address",
     "web",
     "insight-api"
-  ]
+  ],
+  "servicesConfig": {
+    "insight-api": {
+      "disableRateLimiter": true
+    },
+    "bitcoind": {
+      "spawn": {
+        "datadir": "/bitcoin",
+        "network": "testnet",
+        "exec": "/usr/lib/node_modules/bitcore/node_modules/bitcore-node/bin/bitcoind"
+      }
+    }
+ }
 }
