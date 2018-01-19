@@ -26,7 +26,7 @@ RUN npm i -g npm@5
 
 
 # Install Bitcore
-RUN npm install --unsafe-perm -g satoshilabs/bitcore#43b2aaa39b96b2254261da4b4467c869505cc416
+RUN npm install --unsafe-perm -g satoshilabs/bitcore#bd009b19d3b509bd5243a4798cf39d51059aca44
 ADD bitcore-node.json /root/.bitcore/
 
 # Patch insight api
